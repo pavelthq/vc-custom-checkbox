@@ -19,7 +19,7 @@ class VcCustomCheckbox {
 	}
 
 	public function vc_enqueue_editor_scripts_be() {
-		wp_enqueue_script( 'vc-custom-checbox-fe', preg_replace( '/\s/', '%20', plugins_url( 'assets/vc-custom-checkbox.js', vc_custom_checkbox_path() ) ) );
+		wp_enqueue_script( 'vc-custom-checbox-be', preg_replace( '/\s/', '%20', plugins_url( 'assets/vc-custom-checkbox.js', vc_custom_checkbox_path() ) ) );
 	}
 
 	public function vc_enqueue_editor_scripts_fe() {
