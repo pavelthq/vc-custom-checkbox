@@ -4,18 +4,26 @@ class VcCustomCheckbox {
 
 	public function __construct() {
 		add_action( 'vc_load_default_params', array(
-			&$this,
+			$this,
 			'vc_load_vc_custom_checkbox_param',
 		) );
 
-		add_action( 'vc_backend_editor_render', array(
-			&$this,
-			'vc_enqueue_editor_scripts_befe',
+		add_action( 'vc_backend_editor_enqueue_js_css', array(
+			$this,
+			'vc_enqueue_editor_scripts_be',
+		) );
+		add_action( 'vc_frontend_editor_enqueue_js_css', array(
+			$this,
+			'vc_enqueue_editor_scripts_fe',
 		) );
 	}
 
-	public function vc_enqueue_editor_scripts_befe() {
-		wp_enqueue_script( 'vc-custom-checbox-befe', preg_replace( '/\s/', '%20', plugins_url( 'assets/vc-custom-checkbox.js', vc_custom_checkbox_path() ) ) );
+	public function vc_enqueue_editor_scripts_be() {
+		wp_enqueue_script( 'vc-custom-checbox-fe', preg_replace( '/\s/', '%20', plugins_url( 'assets/vc-custom-checkbox.js', vc_custom_checkbox_path() ) ) );
+	}
+
+	public function vc_enqueue_editor_scripts_fe() {
+		wp_enqueue_script( 'vc-custom-checbox-fe', preg_replace( '/\s/', '%20', plugins_url( 'assets/vc-custom-checkbox.js', vc_custom_checkbox_path() ) ) );
 	}
 
 	/**
@@ -23,7 +31,7 @@ class VcCustomCheckbox {
 	 */
 	public function vc_load_vc_custom_checkbox_param() {
 		vc_add_shortcode_param( 'custom_checkbox', array(
-			&$this,
+			$this,
 			'vc_custom_checkbox_form_field',
 		) );
 	}
