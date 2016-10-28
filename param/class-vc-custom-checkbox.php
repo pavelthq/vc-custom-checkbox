@@ -32,7 +32,7 @@ class VcCustomCheckbox {
 	public function vc_load_vc_custom_checkbox_param() {
 		vc_add_shortcode_param( 'custom_checkbox', array(
 			$this,
-			'vc_custom_checkbox_form_field',
+			'render',
 		) );
 	}
 
@@ -44,7 +44,7 @@ class VcCustomCheckbox {
 	 *
 	 * @return string - html string.
 	 */
-	public function vc_custom_checkbox_form_field( $settings, $value ) {
+	public function render( $settings, $value ) {
 		$output = '';
 		$current_value = is_string( $value ) ? ( strlen( $value ) > 0 ? explode( ',', $value ) : array() ) : (array) $value;
 		$values = isset( $settings['value'] ) && is_array( $settings['value'] ) ? $settings['value'] : array( __( 'Yes' ) => 'true' );
