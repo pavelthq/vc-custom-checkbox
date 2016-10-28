@@ -3,7 +3,7 @@
 Plugin Name: Vc Custom Checkbox
 Plugin URI: http://vc.wpbakery.com/
 Description: Custom checkbox Visual Composer on Steroids
-Version: 1.1
+Version: 1.2
 Author: WPBakery
 Author URI: http://wpbakery.com
 License: http://codecanyon.net/licenses
